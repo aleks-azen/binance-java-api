@@ -30,6 +30,11 @@ public class BinanceApiWebSocketListener<T> extends WebSocketListener {
     this.mapper = mapper;
   }
 
+  public String getEventClassName() {
+    String fullName = eventClass.getName();
+    return fullName.substring(fullName.lastIndexOf('.')+1);
+  }
+
   @Override
   public void onMessage(WebSocket webSocket, String text) {
     try {
